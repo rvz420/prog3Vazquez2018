@@ -1,6 +1,6 @@
 package ej1;
 
-public class SimpleLinkedList {
+public class SimpleLinkedList implements Iterable<Object>{
 	protected Node first;
 	protected int size = 0;
 	
@@ -49,6 +49,12 @@ public class SimpleLinkedList {
 	@Override
 	public String toString() {
 		return "SimpleLinkedList [first=" + first + ", size=" + size + "]";
+	}
+	
+	@Override
+	public MyListIterator iterator() {
+		MyListIterator it = new MyListIterator(first);
+		return it;
 	}
 	
 	
