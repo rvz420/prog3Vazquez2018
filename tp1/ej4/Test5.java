@@ -28,6 +28,7 @@ public class Test5 {
 				}
 				
 			}
+			l.setSize(l.size()+1);
 		}
 	}
 	
@@ -48,7 +49,8 @@ public class Test5 {
 					instertarOrdenado(retorno, elem1);
 				}
 			}
-		}	
+		}
+		
 		return retorno;
 	}
 	
@@ -57,28 +59,64 @@ public class Test5 {
 		long startTime;
 		long totalTime;
 		
-		SimpleLinkedList list1 = new SimpleLinkedList();
-		SimpleLinkedList list2 = new SimpleLinkedList();
-		SimpleLinkedList comunes = new SimpleLinkedList();
+		SimpleLinkedList listd1 = new SimpleLinkedList();
+		SimpleLinkedList listd2 = new SimpleLinkedList();
+		SimpleLinkedList dcomunes = new SimpleLinkedList();
 		
-		for (int i = 0; i < TESTS; i++) {
-			list1.insertFirst(i);
-		}
+		SimpleLinkedList listo1 = new SimpleLinkedList();
+		SimpleLinkedList listo2 = new SimpleLinkedList();
+		SimpleLinkedList ocomunes = new SimpleLinkedList();
 		
-		for (int i = 0; i < TESTS+3; i++) {
-			list2.insertFirst(i);
-		}
+		System.out.println("Listas desordenadas:");
+
+		listd1.insertFirst(1);
+		listd1.insertFirst(30);
+		listd1.insertFirst(10);
+		listd1.insertFirst(20);
+		listd1.insertFirst(4);
+
+		listd2.insertFirst(10);
+		listd2.insertFirst(3);
+		listd2.insertFirst(30);
+		listd2.insertFirst(2);
+		listd2.insertFirst(20);
 		
 		startTime = System.nanoTime();
-		comunes = elementosComunes(list1, list2);
+		dcomunes = elementosComunes(listd1, listd2);
 		totalTime = System.nanoTime() - startTime;
 		
 		System.out.println("Tardo "+totalTime+ " nanosegundos en encontrar e insertar ordenados los siguientes elementos comunes:");
 		
-		MyListIterator it = comunes.iterator();
+		MyListIterator it = dcomunes.iterator();
 		while (it.hasNext()) {
 			System.out.println(it.next().getdata());
 		}
+		
+		System.out.println("Listas ordenadas:");
+
+		listo1.insertFirst(1);
+		listo1.insertFirst(2);
+		listo1.insertFirst(3);
+		listo1.insertFirst(4);
+		listo1.insertFirst(5);
+
+		listo2.insertFirst(3);
+		listo2.insertFirst(4);
+		listo2.insertFirst(5);
+		listo2.insertFirst(6);
+		listo2.insertFirst(7);
+		
+		startTime = System.nanoTime();
+		ocomunes = elementosComunes(listo1, listo2);
+		totalTime = System.nanoTime() - startTime;
+		
+		System.out.println("Tardo "+totalTime+ " nanosegundos en encontrar e insertar ordenados los siguientes elementos comunes:");
+		
+		it = ocomunes.iterator();
+		while (it.hasNext()) {
+			System.out.println(it.next().getdata());
+		}
+		
 	}
 
 }

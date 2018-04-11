@@ -54,6 +54,10 @@ public class SimpleLinkedList implements Iterable<Object>{
 		MyListIterator it = new MyListIterator(first);
 		return it;
 	}
+
+	public void setSize(int size) {
+		this.size = size;
+	}
 	
 	
 }
