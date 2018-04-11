@@ -15,12 +15,6 @@ public class SimpleLinkedList implements Iterable<Object>{
 		this.size++;
 	}
 	
-	//public Object extract() {	}
-	
-	public void print(int n) {
-		
-	}
-	
 	public boolean isEmpty(){
 		return this.first == null;
 	}
@@ -38,6 +32,10 @@ public class SimpleLinkedList implements Iterable<Object>{
 			}
 		}	
 		return tmp;
+	}
+	
+	public Node getFirst() {
+		return this.first;
 	}
 	
 	public Node extractFirst(){

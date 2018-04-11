@@ -16,11 +16,11 @@ public class MyListIterator implements Iterator<Object>{
 	}
 
 	@Override
-	public Object next() {
+	public Node next() {
 		Node tmp;
 		tmp = n;
 		n = n.getNext();
-		return tmp.getdata();
+		return tmp;
 	}
 
 }
