@@ -37,6 +37,10 @@ public class Nodo {
 	public void setDer(Nodo der) {
 		this.der = der;
 	}
-	
+
+	@Override
+	public String toString() {
+		return ""+info;
+	}
 	
 }
