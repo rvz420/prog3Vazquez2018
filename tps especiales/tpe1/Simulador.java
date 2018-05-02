@@ -36,6 +36,13 @@ public class Simulador {
 	public static void main(String[] args) {
 		ArrayList<Libro> libros = reader();
 		System.out.println(libros.toString());
+		
+		IndiceGenero ig = new IndiceGenero(libros);
+		System.out.println(ig.getGeneros());
+		
+		ArrayList<Libro> librosGenero = ig.buscarLibros("infantil");
+		System.out.println(librosGenero);
+		
 	}
 
 }

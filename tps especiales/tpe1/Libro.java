@@ -35,12 +35,12 @@ public class Libro {
 		this.autor = autor;
 	}
 
-	public ArrayList<String> getGenero() {
+	public ArrayList<String> getGeneros() {
 		return generos;
 	}
 
 
-	public void setGenero(ArrayList<String> genero) {
+	public void setGeneros(ArrayList<String> genero) {
 		this.generos = genero;
 	}
 
