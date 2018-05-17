@@ -7,6 +7,7 @@ public class Adyacente {
 
 	public Adyacente(Nodo destino) {
 		this.destino = destino;
+		this.peso = 1;
 	}
 
 	public Adyacente(Nodo destino, double peso) {
@@ -18,12 +19,12 @@ public class Adyacente {
 		return destino;
 	}
 
-	public void setDestino(Nodo destino) {
-		this.destino = destino;
-	}
-
 	public double getPeso() {
 		return peso;
+	}
+
+	public void setDestino(Nodo destino) {
+		this.destino = destino;
 	}
 
 	public void setPeso(double peso) {

@@ -14,20 +14,20 @@ public class Node {
 		setNext(n);
 	}
 	
-	public void setdata(Object i) {
-		this.data = i;
-	}
-	
-	public void setNext(Node n) {
-		this.next = n;
-	}
-	
 	public Object getdata() {
 		return this.data;
 	}
 	
 	public Node getNext() {
 		return this.next;
+	}
+	
+	public void setdata(Object i) {
+		this.data = i;
+	}
+	
+	public void setNext(Node n) {
+		this.next = n;
 	}
 
 	@Override

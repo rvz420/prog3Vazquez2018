@@ -9,14 +9,6 @@ public class Pila {
 		elements = new SimpleLinkedList();
 	}
 	
-	public Object verTope(){
-		if(!elements.isEmpty()){
-			return elements.getNode(0).getdata();
-		}else{
-			return null;
-		}
-	}
-	
 	public void apilar(Object elem){
 		elements.insertFirst(elem);
 	}
@@ -27,6 +19,14 @@ public class Pila {
 	
 	public boolean esVacia(){
 		return elements.isEmpty();
+	}
+	
+	public Object verTope(){
+		if(!elements.isEmpty()){
+			return elements.getNode(0).getdata();
+		}else{
+			return null;
+		}
 	}
 	
 }

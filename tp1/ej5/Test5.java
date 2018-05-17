@@ -6,6 +6,28 @@ import ej1.SimpleLinkedList;
 
 public class Test5 {
 	final static int TESTS = 5;
+	public static SimpleLinkedList elementosComunes(SimpleLinkedList l1, SimpleLinkedList l2) {
+		SimpleLinkedList retorno = new SimpleLinkedList();
+		MyListIterator it1 = l1.iterator();
+				
+		while (it1.hasNext()) {
+			boolean comun = false;
+			int elem1 = (int) it1.next().getdata();
+			MyListIterator it2 = l2.iterator();
+			
+			while (it2.hasNext() && !comun) {			
+				int elem2 = (int) it2.next().getdata();
+				
+				if (elem1 == elem2) {
+					comun = true;
+					instertarOrdenado(retorno, elem1);
+				}
+			}
+		}
+		
+		return retorno;
+	}
+	
 	public static void instertarOrdenado(SimpleLinkedList l, int n ) {
 		MyListIterator it = l.iterator();
 		Node aInsertar = new Node(n, null);
@@ -30,28 +52,6 @@ public class Test5 {
 			}
 			l.setSize(l.size()+1);
 		}
-	}
-	
-	public static SimpleLinkedList elementosComunes(SimpleLinkedList l1, SimpleLinkedList l2) {
-		SimpleLinkedList retorno = new SimpleLinkedList();
-		MyListIterator it1 = l1.iterator();
-				
-		while (it1.hasNext()) {
-			boolean comun = false;
-			int elem1 = (int) it1.next().getdata();
-			MyListIterator it2 = l2.iterator();
-			
-			while (it2.hasNext() && !comun) {			
-				int elem2 = (int) it2.next().getdata();
-				
-				if (elem1 == elem2) {
-					comun = true;
-					instertarOrdenado(retorno, elem1);
-				}
-			}
-		}
-		
-		return retorno;
 	}
 	
 	public static void main(String[] args) {

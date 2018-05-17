@@ -16,13 +16,8 @@ public class Libro {
 	}
 
 
-	public String getTitulo() {
-		return titulo;
-	}
-
-
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
+	public void addGenero(String genero) {
+		generos.add(genero);
 	}
 
 
@@ -31,31 +26,36 @@ public class Libro {
 	}
 
 
-	public void setAutor(String autor) {
-		this.autor = autor;
+	public int getCantPaginas() {
+		return cantPaginas;
 	}
+
 
 	public ArrayList<String> getGeneros() {
 		return generos;
 	}
 
-
-	public void setGeneros(ArrayList<String> genero) {
-		this.generos = genero;
+	public String getTitulo() {
+		return titulo;
 	}
 
 
-	public int getCantPaginas() {
-		return cantPaginas;
+	public void setAutor(String autor) {
+		this.autor = autor;
 	}
 
 
 	public void setCantPaginas(int cantPaginas) {
 		this.cantPaginas = cantPaginas;
 	}
+
+
+	public void setGeneros(ArrayList<String> genero) {
+		this.generos = genero;
+	}
 	
-	public void addGenero(String genero) {
-		generos.add(genero);
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
 	}
 	
 }

@@ -18,11 +18,12 @@ public class Simulador {
 		grafo.addVertice(3);
 
 		grafo.insertarArista(0, 1);
+		grafo.insertarArista(0, 2);
 		grafo.insertarArista(1, 2);
-		grafo.insertarArista(1, 3);
-		grafo.insertarArista(3, 0);
+		grafo.insertarArista(2, 0);
+		grafo.insertarArista(2, 3);
 		
-		
+		System.out.println(grafo.bfs(grafo.buscarVertice(0)));
 		
 		System.out.println("Iterable hay ciclo?:"+grafo.esCiclicoRecursivo());		
 

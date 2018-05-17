@@ -14,28 +14,28 @@ public class Nodo {
 		this.der = null;
 	}
 
-	public Comparable getInfo() {
-		return info;
+	public Nodo getDer() {
+		return der;
 	}
 
-	public void setInfo(Comparable info) {
-		this.info = info;
+	public Comparable getInfo() {
+		return info;
 	}
 
 	public Nodo getIzq() {
 		return izq;
 	}
 
-	public void setIzq(Nodo izq) {
-		this.izq = izq;
-	}
-
-	public Nodo getDer() {
-		return der;
-	}
-
 	public void setDer(Nodo der) {
 		this.der = der;
+	}
+
+	public void setInfo(Comparable info) {
+		this.info = info;
+	}
+
+	public void setIzq(Nodo izq) {
+		this.izq = izq;
 	}
 
 	@Override

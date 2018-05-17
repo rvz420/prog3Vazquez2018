@@ -8,19 +8,14 @@ public class SimpleLinkedList implements Iterable<Object>{
 		first = null;
 	}
 	
-	public void insertFirst(Object o) {
-		Node tmp = new Node(o, null);
-		tmp.setNext(first);
-		this.first = tmp;
-		this.size++;
+	public Node extractFirst(){
+		Node ret = first;
+		this.first = this.first.getNext();
+		return ret;
 	}
 	
-	public boolean isEmpty(){
-		return this.first == null;
-	}
-	
-	public int size(){
-		return this.size;
+	public Node getFirst() {
+		return this.first;
 	}
 	
 	public Node getNode(int n) {
@@ -34,19 +29,15 @@ public class SimpleLinkedList implements Iterable<Object>{
 		return tmp;
 	}
 	
-	public Node getFirst() {
-		return this.first;
+	public void insertFirst(Object o) {
+		Node tmp = new Node(o, null);
+		tmp.setNext(first);
+		this.first = tmp;
+		this.size++;
 	}
 	
-	public Node extractFirst(){
-		Node ret = first;
-		this.first = this.first.getNext();
-		return ret;
-	}
-
-	@Override
-	public String toString() {
-		return "SimpleLinkedList [first=" + first + ", size=" + size + "]";
+	public boolean isEmpty(){
+		return this.first == null;
 	}
 	
 	@Override
@@ -57,6 +48,15 @@ public class SimpleLinkedList implements Iterable<Object>{
 
 	public void setSize(int size) {
 		this.size = size;
+	}
+	
+	public int size(){
+		return this.size;
+	}
+
+	@Override
+	public String toString() {
+		return "SimpleLinkedList [first=" + first + ", size=" + size + "]";
 	}
 	
 	

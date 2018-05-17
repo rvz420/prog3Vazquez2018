@@ -11,12 +11,8 @@ public class Nodo {
 		this.valor = valor;
 	}
 
-	public ArrayList<Adyacente> getAdyacentes() {
-		return adyacentes;
-	}
-
-	public Adyacente getAdyacenteAt(int pos){
-		return adyacentes.get(pos);
+	public void addAdyacente(Adyacente ady) {
+		adyacentes.add(ady);
 	}
 
 	public Adyacente getAdyacente(int valor){
@@ -28,12 +24,23 @@ public class Nodo {
 		return null;
 	}
 
+	public Adyacente getAdyacenteAt(int pos){
+		return adyacentes.get(pos);
+	}
+
+	public ArrayList<Adyacente> getAdyacentes() {
+		return adyacentes;
+	}
+
 	public int getValor() {
 		return valor;
 	}
 
-	public void addAdyacente(Adyacente ady) {
-		adyacentes.add(ady);
+	@Override
+	public String toString() {
+		return "Nodo [valor=" + valor + "]";
 	}
-
+	
+	
+	
 }
