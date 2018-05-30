@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class NReinas {
 
 	class Position {
-		int row, col, val;
+		int row, col;
 		Position(int row, int col) {
 			this.row = row;
 			this.col = col;
@@ -51,7 +51,7 @@ public class NReinas {
 	
 	public static void main(String args[]) {
 		NReinas s = new NReinas();
-		Position[] positions = s.resolverReinasUnaSolucion(4);
+		Position[] positions = s.resolverReinasUnaSolucion(8);
 		Arrays.stream(positions).forEach(position -> System.out.println(position.row + " " + position.col));
 	}
 
