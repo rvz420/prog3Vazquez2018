@@ -1,30 +1,33 @@
 package ej7;
 
+import java.util.ArrayList;
+
 public class TableroMagico {
 
-	public int[][] resolverTablero(int n, int k, int s) {	//n = tablero de n*n - k>n*n
+	public ArrayList<int[][]> resolverTablero(int n, int k, int s) {	//n = tablero de n*n - k>n*n
+		ArrayList<int[][]> retorno = new ArrayList<int[][]>();
 		if (k>n*n) {
 			int[][] matrizSolucion = new int[n][n];
 			int[] sumaFila = new int[n];
 			int[] sumaCol = new int[n];
 			boolean[] opcUsadas = new boolean[k+1]; // k+1 por que la opciones van de 1 a k
 
-
-
-			boolean hasSolution = resolverTableroBack(n, k, s, 0, matrizSolucion, sumaFila, sumaCol, opcUsadas);
-			if (hasSolution) {
-				return matrizSolucion;
+			resolverTableroBack(n, k, s, 0, matrizSolucion, sumaFila, sumaCol, opcUsadas, retorno);
+			if (!retorno.isEmpty()) {
+				return retorno;
 			} 
 		}
-		return new int[0][0];
+		return null;
 	}
 
-	public boolean resolverTableroBack(int n, int k, int s, int paso, int[][] matriz, int[] sumaFila, int[] sumaCol, boolean[] opcUsadas) {
+	public void resolverTableroBack(int n, int k, int s, int paso, int[][] matriz, int[] sumaFila, int[] sumaCol, boolean[] opcUsadas, ArrayList<int[][]> retorno) {
 
-		if(paso == n*n ) {
-			return(esSolucion(matriz,sumaFila,sumaCol,n,s));
+		if(paso == n*n) {
+			if (esSolucion(matriz, sumaFila, sumaCol, n, s)) {
+				retorno.add(matriz);
+				imprimirMatriz(matriz);
+			}		
 		}else {
-
 			for (int val = 1; val <= opcUsadas.length-1; val++) {
 				if (opcUsadas[val]) {
 					continue; 
@@ -33,9 +36,10 @@ public class TableroMagico {
 				matriz[paso/n][paso%n] = val;
 				sumaFila[paso/n] += val;
 				sumaCol[paso%n] += val;
-				if (resolverTableroBack(n, k, s, paso+1, matriz, sumaFila, sumaCol, opcUsadas)) {
-					return true;
-				}
+		
+				resolverTableroBack(n, k, s, paso+1, matriz, sumaFila, sumaCol, opcUsadas, retorno); 
+
+
 				matriz[paso/n][paso%n] = 0;
 				sumaFila[paso/n] -= val;
 				sumaCol[paso%n] -= val;
@@ -43,8 +47,8 @@ public class TableroMagico {
 
 			}
 		}
-		return false;
 	}
+
 
 	public boolean esSolucion(int[][] matriz, int[] sumaFila, int[] sumaCol, int n, int s) {
 
@@ -77,15 +81,16 @@ public class TableroMagico {
 			}
 			System.out.println();
 		}
+		System.out.println();
 	}
 
 	public static void main(String args[]) {
+		ArrayList<int[][]> sol = new ArrayList<int[][]>();
 		TableroMagico t = new TableroMagico();
-		int[][] matriz = t.resolverTablero(3,12,18);
-		if(matriz.length>0) {
+		sol.addAll(t.resolverTablero(3,10,15));
+		System.out.println("solucion");
+		for (int[][] matriz : sol) {
 			t.imprimirMatriz(matriz);
-		}else {
-			System.out.println("Sin solucion");
 		}
 	}
 
