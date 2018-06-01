@@ -88,10 +88,6 @@ public class TableroMagico {
 		ArrayList<int[][]> sol = new ArrayList<int[][]>();
 		TableroMagico t = new TableroMagico();
 		sol.addAll(t.resolverTablero(3,10,15));
-		System.out.println("solucion");
-		for (int[][] matriz : sol) {
-			t.imprimirMatriz(matriz);
-		}
 	}
 
 }
