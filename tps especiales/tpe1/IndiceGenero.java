@@ -41,6 +41,13 @@ final class Genero implements Comparable<Genero>{
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+
+	@Override
+	public String toString() {
+		return "Genero [nombre=" + nombre + "]";
+	}
+
+
 }
 
 // CLASE GENERO
@@ -93,8 +100,13 @@ public class IndiceGenero {
 
 	private ArrayList<Libro> busquedaBinariaLibro(String genero, int min, int max) {
 		comparacionesBinarias++;
-		ArrayList<Libro> retorno = new ArrayList<Libro>();
+		ArrayList<Libro> retorno;
 		int medio = (max+min)/2;
+
+		if (max < min) {
+			return new ArrayList<Libro>();
+		}
+
 		if (generos.get(medio).getNombre().compareTo(genero) == 0) {
 			retorno = generos.get(medio).getLibros();
 		} else if (generos.get(medio).getNombre().compareTo(genero) < 0) {
@@ -124,25 +136,24 @@ public class IndiceGenero {
 		Iterator<Genero> it = generos.iterator();
 		if (!this.generos.isEmpty()) {
 			int i = 0;
-			boolean inserto = false;
-			while(it.hasNext()&&!inserto) {
+			while(it.hasNext()) {
 				if (g.compareTo(it.next())<0) {
 					generos.add(i, g);
-					inserto = true;
+					return;
 				}else {
 					i++;
 				}
-				
 			}
-			this.generos.add(g);
-		}else {
-			this.generos.add(g);
 		}
-
+		this.generos.add(g);
 	}
+
+
 
 	public void setGeneros(ArrayList<Genero> generos) {
 		this.generos = generos;
 	}
+
+
 
 }

@@ -15,29 +15,32 @@ public class Simulador {
 		long totalTime;
 		ArrayList<Libro> libros = reader();
 		IndiceGenero ig = new IndiceGenero(libros);
-		ArrayList<Libro> librosGenero = new ArrayList<Libro>();
+		ArrayList<Libro> librosGenero;
 		
-//		System.out.println("Lista de libros:");
-//		System.out.println(libros.toString());
-//
-//		System.out.println("Lista de generos:");
-//		System.out.println(ig.getGeneros());
+		System.out.println("Lista de libros:");
+		System.out.println(libros.toString());
+
+		System.out.println("Lista de generos:");
+		System.out.println(ig.getGeneros());
+		System.out.println();
 		
 		//BUSQUEDA LINEAL
-//		startTime = System.nanoTime();
-//		librosGenero = ig.buscarLibros("viajes");
-//		totalTime = System.nanoTime() - startTime;
-//		System.out.println("busqueda lineal:");
-//		System.out.println("Comparaciones: "+ig.comparacionesLineales);
-//		System.out.println("tiempo total de busqueda:");
-//		System.out.println(totalTime);
-//		System.out.println();
+		startTime = System.nanoTime();
+		librosGenero = ig.buscarLibros("viajes");
+		totalTime = System.nanoTime() - startTime;
+		System.out.println("busqueda lineal:");
+		System.out.println(librosGenero.toString());
+		System.out.println("Comparaciones: "+ig.comparacionesLineales);
+		System.out.println("tiempo total de busqueda:");
+		System.out.println(totalTime);
+		System.out.println();
 		
 		//BUSQUEDA BINARIA
 		startTime = System.nanoTime();
 		librosGenero = ig.busquedaBinariaLibro("viajes");
 		totalTime = System.nanoTime() - startTime;
-		System.out.println("busqueda binaria");
+		System.out.println("busqueda binaria:");
+		System.out.println(librosGenero.toString());
 		System.out.println("Comparaciones: "+ig.comparacionesBinarias);
 		System.out.println("tiempo total de busqueda:");
 		System.out.println(totalTime);
@@ -61,7 +64,7 @@ public class Simulador {
 
 	public static ArrayList<Libro> reader (){
 		ArrayList<Libro> libros = new ArrayList<Libro>();
-		String csvFile = "dataset3.csv";
+		String csvFile = "dataset2.csv";
 		String line = "";
 		String cvsSplitBy = ",";
 
