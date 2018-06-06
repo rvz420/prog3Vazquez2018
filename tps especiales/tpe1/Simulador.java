@@ -18,7 +18,7 @@ public class Simulador {
 		ArrayList<Libro> librosGenero;
 		
 		System.out.println("Lista de libros:");
-		System.out.println(libros.toString());
+		//System.out.println(libros.toString());
 
 		System.out.println("Lista de generos:");
 		System.out.println(ig.getGeneros());
@@ -29,7 +29,7 @@ public class Simulador {
 		librosGenero = ig.buscarLibros("viajes");
 		totalTime = System.nanoTime() - startTime;
 		System.out.println("busqueda lineal:");
-		System.out.println(librosGenero.toString());
+		//System.out.println(librosGenero.toString());
 		System.out.println("Comparaciones: "+ig.comparacionesLineales);
 		System.out.println("tiempo total de busqueda:");
 		System.out.println(totalTime);
@@ -40,7 +40,7 @@ public class Simulador {
 		librosGenero = ig.busquedaBinariaLibro("viajes");
 		totalTime = System.nanoTime() - startTime;
 		System.out.println("busqueda binaria:");
-		System.out.println(librosGenero.toString());
+		//System.out.println(librosGenero.toString());
 		System.out.println("Comparaciones: "+ig.comparacionesBinarias);
 		System.out.println("tiempo total de busqueda:");
 		System.out.println(totalTime);
@@ -64,7 +64,7 @@ public class Simulador {
 
 	public static ArrayList<Libro> reader (){
 		ArrayList<Libro> libros = new ArrayList<Libro>();
-		String csvFile = "dataset2.csv";
+		String csvFile = "dataset1.csv";
 		String line = "";
 		String cvsSplitBy = ",";
 

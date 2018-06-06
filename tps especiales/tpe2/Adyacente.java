@@ -2,8 +2,8 @@ package tpe2;
 
 public class Adyacente {
 
-	Nodo destino;
-	double peso;
+	private Nodo destino;
+	private double peso;
 
 	public Adyacente(Nodo destino) {
 		this.destino = destino;
